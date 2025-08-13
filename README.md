@@ -1,2 +1,3 @@
-# 3D Projectile Motion Simulation
-파이썬으로 만든 3D 포물선 운동 시뮬레이션
+# Projectile Motion Simulation Over Time
+
+파이썬으로 만든 시간에 따른 포물선 운동 시뮬레이션
