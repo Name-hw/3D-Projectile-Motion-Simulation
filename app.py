@@ -8,12 +8,12 @@ TOTAL_TIME = 10  # seconds
 DELTA_TIME = 0.05  # seconds
 
 time = np.arange(0, TOTAL_TIME, DELTA_TIME)  # seconds
-initial_speed = 12.5  # m/s
+initial_speed = 9  # m/s
 theta = 45  # degrees
 
 fig, ax = plt.subplots(1, 1, figsize=(7.5, 7.5))
-x = []
-y = []
+x = []  # m
+y = []  # m
 line = ax.plot(0, 0)[0]
 frame_count = int(TOTAL_TIME / DELTA_TIME)
 
@@ -35,7 +35,7 @@ def update(frame):
     velocity_x = initial_speed * np.cos(np.radians(theta))  # m/s
     velocity_y = initial_speed * np.sin(np.radians(theta))  # m/s
     x.append(velocity_x * t)
-    y.append(velocity_y * t - GRAVITATIONAL_ACCELERATION * t**2)
+    y.append(velocity_y * t - (GRAVITATIONAL_ACCELERATION * t**2) / 2)
 
     line.set_data(x[:frame], y[:frame])
 
@@ -52,6 +52,6 @@ anim = FuncAnimation(
     interval=DELTA_TIME * 1000,
     repeat=False,
 )
-# plt.show()
+plt.show()
 
-anim.save("animation.gif")
+# anim.save("animation.gif")
